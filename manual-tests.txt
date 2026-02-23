@@ -61,4 +61,15 @@ Use `./build.sh` to build CiCo and `./run.sh` to run it if using the command lin
 ## Expected results
 * Should display "Developer" for the user name.
 
+Module 4: Constrain input to valid card number length
 
+## Test steps
+1. Build and run CiCo.
+2. Attempt to type fewer digits than the required developer card number length
+3. Attempt to type more digits than the required developer card number length
+
+## Expected results
+* After step 2: The field should allow typing only up to the exact required
+number of digits.
+* After step 3: The field should reject any additional digits once the required
+length is reached.
