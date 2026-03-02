@@ -73,3 +73,21 @@ Module 4: Constrain input to valid card number length
 number of digits.
 * After step 3: The field should reject any additional digits once the required
 length is reached.
+
+# Module 5: Skip Timeout After Card Scan
+
+## Test steps
+1. Build and run CiCo.
+2. Scan a valid developer card.
+3. Observe that the timeout countdown begins as usual.
+4. Click the new "Next" button.
+5. Repeat the test but do not click the button and allow the timeout to occur
+normally.
+
+## Expected results
+* After step 3: The timeout should begin exactly as before, with no change
+to default behavior.
+* After step 4: The UI should immediately reset to the ready state, as if the
+timeout completed. No timeout message should appear afterward.
+* After step 5: The system should still preform the normal timeout behavior
+when the button is not pressed.
