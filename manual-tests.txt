@@ -61,7 +61,28 @@ Use `./build.sh` to build CiCo and `./run.sh` to run it if using the command lin
 ## Expected results
 * Should display "Developer" for the user name.
 
-Module 4: Constrain input to valid card number length
+[Ticket 602] Verify neutral monochromatic color scheme
+
+- TEST STEPS:
+1. Build and run CiCo.
+2. Observe the Main panel background color.
+3. Observe the Status panel background color.
+4. Observe the Error panel background color.
+5. Verify all labels (directive, user, state, error reason) use white text.
+6. Verify the text field uses a light gray background with black text.
+7. Verify all buttons use gray or dark gray backgrounds with white text.
+8. Confirm no bright or saturated colors
+   (e.g., cyan, green, magenta, red, blue, yellow) remain.
+9. Evaluate readability and contrast of all text and UI elements.
+
+- EXPECTED RESULTS:
+- All panels use neutral gray or dark gray backgrounds.
+- All labels use white text.
+- The text field uses a light gray background with black text.
+- All buttons use gray or dark gray backgrounds with white text.
+- No bright or saturated colors appear anywhere in the UI.
+- The overall color scheme appears neutral, professional, and visually consistent.
+
 
 ## Test steps
 1. Build and run CiCo.
