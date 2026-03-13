@@ -41,10 +41,15 @@ public class Main {
     public void insertString(FilterBypass fb, int offset, String stringToAdd, AttributeSet attr)
         throws BadLocationException
     {
-      if (fb.getDocument() != null) {
+
+      if (stringToAdd == null) return;
+
+      int currentLength = fb.getDocument().getLength();
+      int newLength = currentLength + stringToAdd.length();
+
+      if (newLength <= MAX_LENGTH) {
         super.insertString(fb, offset, stringToAdd, attr);
-      }
-      else {
+      } else {
         Toolkit.getDefaultToolkit().beep();
       }
     }
@@ -53,12 +58,16 @@ public class Main {
     public void replace(FilterBypass fb, int offset, int lengthToDelete, String stringToAdd, AttributeSet attr)
         throws BadLocationException
     {
-      if (fb.getDocument() != null) {
+
+      int currentLength = fb.getDocument().getLength();
+      int newLength = currentLength - lengthToDelete + (stringToAdd == null ? 0 : stringToAdd.length());
+
+      if (newLength <= MAX_LENGTH) {
         super.replace(fb, offset, lengthToDelete, stringToAdd, attr);
-      }
-      else {
+      } else {
         Toolkit.getDefaultToolkit().beep();
       }
+
     }
   }
 
@@ -289,6 +298,11 @@ public class Main {
     labelState.setAlignmentX(JComponent.CENTER_ALIGNMENT);
     labelState.setForeground(Color.WHITE);
     panelStatus.add(labelState);
+
+    JButton buttonNext = new JButton("Next");
+    buttonNext.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+    buttonNext.addActionListener(e ->doneProcessing());
+    panelStatus.add(buttonNext);
 
     panelStatus.add(Box.createVerticalGlue());
 
